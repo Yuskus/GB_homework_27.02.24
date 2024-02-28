@@ -1,7 +1,8 @@
 ﻿// Задача 2: Напишите программу вычисления функции Аккермана
 // с помощью рекурсии. Даны два неотрицательных числа m и n.
 
-long deep = 0;
+int deep = 0;
+int maxRecursionDeep = 70000000;
 
 void Main()
 {
@@ -26,7 +27,7 @@ int InputNumber(string text)
 int Ack(int m, int n)
 {
     deep++;
-    if (deep > 70000000) return 0;
+    if (deep > maxRecursionDeep) return 0;
     if (m == 0) return n + 1;
     else if (n == 0) return Ack(m - 1, 1);
     else return Ack(m - 1, Ack(m, n - 1));
